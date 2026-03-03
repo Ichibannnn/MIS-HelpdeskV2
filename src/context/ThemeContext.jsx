@@ -11,7 +11,9 @@ export const ThemeModeProvider = ({ children }) => {
     const savedMode = localStorage.getItem("themeMode");
     if (savedMode) return savedMode;
 
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
   };
 
   const [mode, setMode] = useState(getInitialMode);
@@ -25,6 +27,8 @@ export const ThemeModeProvider = ({ children }) => {
   };
 
   const theme = useMemo(() => getTheme(mode), [mode]);
+
+  console.log("Mode: ", mode);
 
   return (
     <ThemeModeContext.Provider value={{ mode, toggleTheme }}>
