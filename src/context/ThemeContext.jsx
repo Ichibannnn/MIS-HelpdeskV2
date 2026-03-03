@@ -28,7 +28,7 @@ export const ThemeModeProvider = ({ children }) => {
 
   const theme = useMemo(() => getTheme(mode), [mode]);
 
-  console.log("Mode: ", mode);
+  // console.log("Mode: ", mode);
 
   return (
     <ThemeModeContext.Provider value={{ mode, toggleTheme }}>
