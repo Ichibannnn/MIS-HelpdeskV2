@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap");
+
+.login-page-light {
+  width: 100%;
+  height: 100vh;
+  background: #533b8c;
+  background: linear-gradient(227deg, rgba(83, 59, 140, 1) 21%, #0e1320 81%);
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page-dark {
+  width: 100%;
+  height: 100vh;
+  background: #533b8c;
+  background: linear-gradient(227deg, rgba(83, 59, 140, 1) 21%, rgba(242, 242, 242, 1) 81%);
+  justify-content: center;
+  align-items: center;
+}
+
+.login-paper-left {
+  width: 30rem;
+  height: 33rem;
+  background-color: #fff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-image: url("/src/assets//png/backgroundCard.png");
+  padding: 4;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-paper {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.svg-styling {
+  width: 320px;
+  height: 320px;
+  object-fit: fill;
+  border-style: none;
+
+  position: relative;
+  z-index: 1;
+  top: 0;
+}
+
+.login-paper-right-light {
+  width: 30rem;
+  height: 33rem;
+  background-color: #1c2536;
+  padding: 4;
+  text-align: center;
+}
+
+.login-paper-right-dark {
+  width: 30rem;
+  height: 33rem;
+  background-color: #fff;
+  padding: 4;
+  text-align: center;
+}
+
+.login-icon {
+  width: 65px;
+  object-fit: fill;
+  z-index: -1;
+  top: 0;
+}
