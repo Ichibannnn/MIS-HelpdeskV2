@@ -3,7 +3,7 @@ const palette = (mode) => ({
   ...(mode === "light"
     ? {
         background: {
-          default: "#f4f6f8",
+          default: "#f6f6f6",
           paper: "#ffffff",
         },
         text: {

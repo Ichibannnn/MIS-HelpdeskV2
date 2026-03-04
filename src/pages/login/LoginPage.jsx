@@ -1,6 +1,6 @@
 import { useThemeMode } from "../../context/ThemeContext";
-import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
-import { DarkMode, LightMode } from "@mui/icons-material";
+import { Box, Button, IconButton, InputAdornment, Stack, Typography } from "@mui/material";
+import { DarkMode, LightMode, Visibility, VisibilityOff } from "@mui/icons-material";
 
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -10,6 +10,7 @@ import helpdeskVector from "../../assets/svg/loginVector.svg";
 import helpDeskLogo from "../../assets/png/helpdesk_icon.png";
 
 import TextFieldControlled from "../../components/controlled/TextFieldControlled";
+import useDisclosure from "../../hooks/useDisclosure";
 
 const LoginPage = () => {
   const { mode, toggleTheme } = useThemeMode();
@@ -34,9 +35,9 @@ const LoginPage = () => {
           </Typography>
           <Typography color="gray">Management Information System</Typography>
 
-          {/* <IconButton color="primary" onClick={toggleTheme}>
+          <IconButton color="primary" onClick={toggleTheme}>
             {mode === "light" ? <DarkMode /> : <LightMode />}
-          </IconButton> */}
+          </IconButton>
 
           <LoginForm />
         </Box>
@@ -53,6 +54,8 @@ const schema = yup.object().shape({
 });
 
 const LoginForm = () => {
+  const { open: isVisible, onToggle: onVisibleToggle } = useDisclosure();
+
   const {
     register,
     handleSubmit,
@@ -68,8 +71,6 @@ const LoginForm = () => {
     },
   });
 
-  console.log("Watch: ", watch("username"));
-
   const onLoginHandler = (data) => {
     console.log("Data: ", data);
   };
@@ -78,7 +79,23 @@ const LoginForm = () => {
     <form onSubmit={handleSubmit(onLoginHandler)}>
       <Stack p={4} gap={1.5}>
         <TextFieldControlled control={control} name="username" label="Enter your username" helperText={errors?.username?.message} error={!!errors?.username} />
-        <TextFieldControlled control={control} name="password" label="Enter your password" helperText={errors?.password?.message} error={!!errors?.password} />
+        <TextFieldControlled
+          control={control}
+          name="password"
+          label="Enter your password"
+          helperText={errors?.password?.message}
+          error={!!errors?.password}
+          type={isVisible ? "text" : "password"}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton sx={{ color: "gray" }} edge="end" aria-label="toggle password visibility" onClick={onVisibleToggle}>
+                  {isVisible ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+        />
 
         <Button variant="contained" type="submit" size="large">
           Login
