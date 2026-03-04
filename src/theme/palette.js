@@ -7,7 +7,10 @@ const palette = (mode) => ({
           paper: "#ffffff",
         },
         text: {
-          primary: "#000",
+          primary: "#212636",
+        },
+        icon: {
+          primary: "#6E53A5",
         },
       }
     : {
@@ -20,7 +23,7 @@ const palette = (mode) => ({
         },
       }),
   primary: {
-    main: "#1976d2",
+    main: "#6E53A5",
   },
 });
 
