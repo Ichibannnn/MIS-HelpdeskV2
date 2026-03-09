@@ -1,6 +1,18 @@
 import { useThemeMode } from "../../context/ThemeContext";
-import { Box, Button, IconButton, InputAdornment, Stack, Typography } from "@mui/material";
-import { DarkMode, LightMode, Visibility, VisibilityOff } from "@mui/icons-material";
+import {
+  Box,
+  Button,
+  IconButton,
+  InputAdornment,
+  Stack,
+  Typography,
+} from "@mui/material";
+import {
+  DarkMode,
+  LightMode,
+  Visibility,
+  VisibilityOff,
+} from "@mui/icons-material";
 
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -16,31 +28,61 @@ const LoginPage = () => {
   const { mode, toggleTheme } = useThemeMode();
 
   return (
-    <Stack direction="row" className={mode === "light" ? "login-page-light" : "login-page-dark"}>
-      <Stack className="login-paper-left" sx={{ display: { xs: "none", sm: "none", md: "flex" } }}>
-        <Typography mt={5} color="white" fontWeight="bold" variant="h3">
-          WELCOME!
-        </Typography>
-        <Typography color="white" fontSize="sm">
-          One Team One RDF
-        </Typography>
-        <Box className="svg-styling" component="img" src={helpdeskVector} alt="helpdesk" />
-      </Stack>
+    <Stack
+      direction="row"
+      className={mode === "light" ? "login-page-light" : "login-page-dark"}
+    >
+      <Stack
+        className={mode === "light" ? "login-form-light" : "login-form-dark"}
+        direction="row"
+        p={1}
+      >
+        <Stack
+          className="login-paper-left"
+          sx={{
+            display: { xs: "none", sm: "none", md: "flex" },
+          }}
+        >
+          <Stack>
+            <Typography
+              mt={5}
+              color="white"
+              fontWeight="bold"
+              variant="h3"
+              textAlign="center"
+            >
+              WELCOME!
+            </Typography>
 
-      <Stack className={mode === "light" ? "login-paper-right-light" : "login-paper-right-dark"}>
-        <Box>
-          <img className="login-icon" src={helpDeskLogo} alt="dotek-icon" />
-          <Typography variant="h5" color="text.primary">
-            Sign in your Account
-          </Typography>
-          <Typography color="gray">Management Information System</Typography>
+            <Typography color="white" fontSize="sm" textAlign="center">
+              One Team One RDF
+            </Typography>
+            <Box
+              className="svg-styling"
+              component="img"
+              src={helpdeskVector}
+              alt="helpdesk"
+            />
+          </Stack>
+        </Stack>
 
-          <IconButton color="primary" onClick={toggleTheme}>
-            {mode === "light" ? <DarkMode /> : <LightMode />}
-          </IconButton>
+        <Stack
+          className={
+            mode === "light"
+              ? "login-paper-right-light"
+              : "login-paper-right-dark"
+          }
+        >
+          <Box>
+            <img className="login-icon" src={helpDeskLogo} alt="dotek-icon" />
+            <Typography variant="h5" color="text.primary">
+              Sign in your Account
+            </Typography>
+            <Typography color="gray">Management Information System</Typography>
 
-          <LoginForm />
-        </Box>
+            <LoginForm />
+          </Box>
+        </Stack>
       </Stack>
     </Stack>
   );
@@ -78,7 +120,14 @@ const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit(onLoginHandler)}>
       <Stack p={4} gap={1.5}>
-        <TextFieldControlled control={control} name="username" label="Enter your username" helperText={errors?.username?.message} error={!!errors?.username} />
+        <TextFieldControlled
+          control={control}
+          name="username"
+          label="Enter your username"
+          helperText={errors?.username?.message}
+          error={!!errors?.username}
+        />
+
         <TextFieldControlled
           control={control}
           name="password"
@@ -89,7 +138,12 @@ const LoginForm = () => {
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton sx={{ color: "gray" }} edge="end" aria-label="toggle password visibility" onClick={onVisibleToggle}>
+                <IconButton
+                  sx={{ color: "gray" }}
+                  edge="end"
+                  aria-label="toggle password visibility"
+                  onClick={onVisibleToggle}
+                >
                   {isVisible ? <Visibility /> : <VisibilityOff />}
                 </IconButton>
               </InputAdornment>

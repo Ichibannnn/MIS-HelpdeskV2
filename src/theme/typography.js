@@ -10,7 +10,11 @@ const typography = () => ({
   },
 
   h5: {
-    fontWeight: 700,
+    fontWeight: 600,
+  },
+
+  h4: {
+    fontWeight: 600,
   },
 });
 
