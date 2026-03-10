@@ -2,6 +2,8 @@ import queryString from "query-string";
 
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+console.log(import.meta.env.VITE_BASE_URL);
+
 export const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({

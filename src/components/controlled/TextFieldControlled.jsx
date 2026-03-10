@@ -9,15 +9,7 @@ const TextFieldControlled = ({ name, control, ...params }) => {
       render={({ field }) => {
         const { ref, value, onChange } = field;
 
-        return (
-          <TextField
-            {...params}
-            inputRef={ref}
-            value={value}
-            onChange={onChange}
-            size="xs"
-          />
-        );
+        return <TextField {...params} inputRef={ref} value={value} onChange={onChange} size="xs" autoComplete="off" />;
       }}
     />
   );

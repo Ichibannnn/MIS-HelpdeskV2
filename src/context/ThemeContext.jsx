@@ -11,9 +11,7 @@ export const ThemeModeProvider = ({ children }) => {
     const savedMode = localStorage.getItem("themeMode");
     if (savedMode) return savedMode;
 
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   };
 
   const [mode, setMode] = useState(getInitialMode);
