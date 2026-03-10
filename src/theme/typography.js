@@ -1,21 +1,28 @@
-const typography = () => ({
-  fontFamily: "Plus Jakarta Sans",
+const typography = {
+  fontFamily: `"Plus Jakarta Sans", "Roboto", "Helvetica", "Arial", sans-serif`,
 
-  h6: {
-    display: "block",
-    marginBlockStart: "2.33rem",
-    marginBlockEnd: "2.33rem",
-    marginInlineStart: "0px",
-    marginInlineEnd: "0px",
+  h1: {
+    fontWeight: 700,
+    fontSize: "2.5rem",
+  },
+
+  h2: {
+    fontWeight: 700,
+    fontSize: "2rem",
   },
 
   h5: {
     fontWeight: 600,
   },
 
-  h4: {
+  body1: {
+    fontSize: "0.95rem",
+  },
+
+  button: {
+    textTransform: "none",
     fontWeight: 600,
   },
-});
+};
 
 export default typography;

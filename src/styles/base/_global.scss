@@ -1,0 +1,20 @@
+:root {
+  --sidebar-bg: #1e293b;
+  --sidebar-text: #ffffff;
+
+  --header-bg: #ffffff;
+  --content-bg: #f8fafc;
+
+  --border-color: #e5e7eb;
+}
+
+/* Dark mode */
+.dark {
+  --sidebar-bg: #020617;
+  --sidebar-text: #e2e8f0;
+
+  --header-bg: #020617;
+  --content-bg: #020617;
+
+  --border-color: #334155;
+}

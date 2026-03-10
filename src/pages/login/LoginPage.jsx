@@ -1,5 +1,12 @@
 import { useThemeMode } from "../../context/ThemeContext";
-import { Box, Button, IconButton, InputAdornment, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  IconButton,
+  InputAdornment,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 import * as yup from "yup";
@@ -23,8 +30,15 @@ const LoginPage = () => {
   const { mode, toggleTheme } = useThemeMode();
 
   return (
-    <Stack direction="row" className={mode === "light" ? "login-page-light" : "login-page-dark"}>
-      <Stack className={mode === "light" ? "login-form-light" : "login-form-dark"} direction="row" p={1}>
+    <Stack
+      direction="row"
+      className={mode === "light" ? "login-page-light" : "login-page-dark"}
+    >
+      <Stack
+        className={mode === "light" ? "login-form-light" : "login-form-dark"}
+        direction="row"
+        p={1}
+      >
         <Stack
           className="login-paper-left"
           sx={{
@@ -32,18 +46,35 @@ const LoginPage = () => {
           }}
         >
           <Stack>
-            <Typography mt={5} color="white" fontWeight="bold" variant="h3" textAlign="center">
+            <Typography
+              mt={5}
+              color="white"
+              fontWeight="bold"
+              variant="h3"
+              textAlign="center"
+            >
               WELCOME!
             </Typography>
 
             <Typography color="white" fontSize="sm" textAlign="center">
               One Team One RDF
             </Typography>
-            <Box className="svg-styling" component="img" src={helpdeskVector} alt="helpdesk" />
+            <Box
+              className="svg-styling"
+              component="img"
+              src={helpdeskVector}
+              alt="helpdesk"
+            />
           </Stack>
         </Stack>
 
-        <Stack className={mode === "light" ? "login-paper-right-light" : "login-paper-right-dark"}>
+        <Stack
+          className={
+            mode === "light"
+              ? "login-paper-right-light"
+              : "login-paper-right-dark"
+          }
+        >
           <Box>
             <img className="login-icon" src={helpDeskLogo} alt="dotek-icon" />
             <Typography variant="h5" color="text.primary">
@@ -95,12 +126,18 @@ const LoginForm = () => {
 
       const { token, ...user } = response.value;
 
+      sessionStorage.setItem("token", token);
+      sessionStorage.setItem("user", JSON.stringify(user));
+
       dispatch(signIn());
       dispatch(setUserDetails(user));
 
       navigate("/");
 
-      setTimeout(() => showToast("Success!", "Login Successfully!", "success"), 1000);
+      setTimeout(
+        () => showToast("Success!", "Login Successfully!", "success"),
+        1000,
+      );
     } catch (error) {
       console.log("Error: ", error);
       showToast("Error!", error?.data.error.message, "error");
@@ -110,7 +147,13 @@ const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit(onLoginHandler)}>
       <Stack p={4} gap={1.5}>
-        <TextFieldControlled control={control} name="username" label="Enter your username" helperText={errors?.username?.message} error={!!errors?.username} />
+        <TextFieldControlled
+          control={control}
+          name="username"
+          label="Enter your username"
+          helperText={errors?.username?.message}
+          error={!!errors?.username}
+        />
 
         <TextFieldControlled
           control={control}
@@ -122,7 +165,12 @@ const LoginForm = () => {
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton sx={{ color: "gray" }} edge="end" aria-label="toggle password visibility" onClick={onVisibleToggle}>
+                <IconButton
+                  sx={{ color: "gray" }}
+                  edge="end"
+                  aria-label="toggle password visibility"
+                  onClick={onVisibleToggle}
+                >
                   {isVisible ? <Visibility /> : <VisibilityOff />}
                 </IconButton>
               </InputAdornment>
@@ -130,7 +178,12 @@ const LoginForm = () => {
           }}
         />
 
-        <Button variant="contained" type="submit" size="large" loading={isLoading}>
+        <Button
+          variant="contained"
+          type="submit"
+          size="large"
+          loading={isLoading}
+        >
           Login
         </Button>
       </Stack>

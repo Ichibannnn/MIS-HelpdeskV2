@@ -9,6 +9,7 @@ import { ThemeModeProvider } from "./context/ThemeContext.jsx";
 import { ToastProvider } from "./context/ToastProvider.jsx";
 
 import "./styles/index.css";
+import "./styles/main.scss";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

@@ -1,2 +1,4 @@
-@use "./abstracts/variables";
-@use "./abstracts/mixins";
+@use "./layout/layout";
+@use "./layout/sidebar";
+@use "./layout/header";
+@use "./layout/content";

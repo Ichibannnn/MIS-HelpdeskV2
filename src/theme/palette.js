@@ -2,29 +2,27 @@ const palette = (mode) => ({
   mode,
   ...(mode === "light"
     ? {
+        primary: { main: "#9e77ed" },
+        secondary: { main: "#3f305f" },
+        success: { main: "#22c55e" },
+        warning: { main: "#f59e0b" },
+        error: { main: "#ef4444" },
         background: {
-          default: "#f6f6f6",
+          default: "#f8fafc",
           paper: "#ffffff",
-        },
-        text: {
-          primary: "#212636",
-        },
-        icon: {
-          primary: "#6E53A5",
         },
       }
     : {
+        primary: { main: "#9e77ed" },
+        secondary: { main: "#3f305f" },
+        success: { main: "#22c55e" },
+        warning: { main: "#f59e0b" },
+        error: { main: "#ef4444" },
         background: {
-          default: "#121212",
-          paper: "#1e1e1e",
-        },
-        text: {
-          primary: "#fff",
+          default: "#0f172a",
+          paper: "#1e293b",
         },
       }),
-  primary: {
-    main: "#6E53A5",
-  },
 });
 
 export default palette;

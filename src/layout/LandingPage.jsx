@@ -7,13 +7,16 @@ import { Outlet } from "react-router-dom";
 
 const LandingPage = () => {
   return (
-    <Stack direction="row" height="100vh">
+    <Stack direction="row" height="100vh" width="100%">
       <Sidebar />
 
-      <Box>
+      <Stack sx={{ height: "100%", overflowY: "auto", flex: 1 }}>
         <Header />
-        <Outlet />
-      </Box>
+
+        <Stack className="content">
+          <Outlet />
+        </Stack>
+      </Stack>
     </Stack>
   );
 };

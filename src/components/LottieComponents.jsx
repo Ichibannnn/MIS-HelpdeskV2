@@ -1,8 +1,9 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { styled } from "@mui/system";
 import Lottie from "lottie-react";
 
 import pageNotFound from "../assets/lottie-files/page-not-found.json";
+
 import { ChevronLeft } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 
@@ -23,10 +24,23 @@ export const PageNotFound = () => {
   const navigate = useNavigate();
 
   return (
-    <StyledBox justifyContent="center" alignItems="center" sx={{ background: "#111927" }}>
-      <Lottie animationData={pageNotFound} style={{ padding: 0, margin: 0, height: 800 }} />
+    <StyledBox
+      justifyContent="center"
+      alignItems="center"
+      sx={{ background: "#111927" }}
+    >
+      <Lottie
+        animationData={pageNotFound}
+        style={{ padding: 0, margin: 0, height: 800 }}
+      />
 
-      <Button variant="contained" size="large" startIcon={<ChevronLeft />} onClick={() => navigate(-1)} disableElevation>
+      <Button
+        variant="contained"
+        size="large"
+        startIcon={<ChevronLeft />}
+        onClick={() => navigate(-1)}
+        disableElevation
+      >
         Go Back
       </Button>
     </StyledBox>

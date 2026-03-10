@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import Private from "./Private";
+import AuthRedirect from "./AuthRedirect";
 
 import LoginPage from "../pages/login/LoginPage";
 import LandingPage from "../layout/LandingPage";
@@ -12,7 +13,11 @@ import UserRoles from "../pages/user-management/user-role/UserRoles";
 export const router = createBrowserRouter([
   {
     path: "/login",
-    element: <LoginPage />,
+    element: (
+      <AuthRedirect>
+        <LoginPage />
+      </AuthRedirect>
+    ),
   },
   {
     path: "/",
