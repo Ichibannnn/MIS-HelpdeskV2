@@ -8,8 +8,8 @@ const palette = (mode) => ({
         warning: { main: "#f59e0b" },
         error: { main: "#ef4444" },
         background: {
-          default: "#f8fafc",
-          paper: "#ffffff",
+          default: "#F1F1F1",
+          paper: "#FDFDFD",
         },
       }
     : {
